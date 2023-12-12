@@ -84,6 +84,7 @@
 
 
     <build>
+        <finalName>my-maven-docker-project</finalName>
         <plugins>
             <plugin>
                 <!-- Build an executable JAR -->

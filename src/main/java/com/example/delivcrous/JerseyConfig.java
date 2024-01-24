@@ -1,11 +1,19 @@
 package com.example.delivcrous;
 
+import com.example.delivcrous.controller.*;
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-        packages("com.example.delivcrous.controller", "com.example.delivcrous.exceptions", "com.example.delivcrous.model", "com.example.delivcrous.payload", "com.example.delivcrous.repository", "com.example.delivcrous.security", "com.example.delivcrous.service");
+        register(UtilisateurController.class);
+        register(PlatPanierController.class);
+        register(PlatController.class);
+        register(PlatCommandeController.class);
+        register(PanierController.class);
+        register(CommandeController.class);
+        register(AllergeneController.class);
     }
 }

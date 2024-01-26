@@ -6,9 +6,9 @@ DOCKERFILE_PATH="/opt/app/back/Dockerfile"
 
 PROJET_MAVEN_PATH="/opt/app/back"
 
-docker stop cloud-secure-back
+docker stop back-1
 
-docker rm cloud-secure-back
+docker rm back-1
 
 docker build -t $DOCKER_IMAGE_NAME -f $DOCKERFILE_PATH $PROJET_MAVEN_PATH
 

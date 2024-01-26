@@ -28,7 +28,7 @@ check_status
 
 # Exécuter le script de lancement du conteneur Docker
 echo "5. Lancement du conteneur Docker..."
-bash ./run-docker-container
+bash ./run-docker-container.sh
 check_status
 
 echo "Le déploiement est terminé avec succès !"

@@ -7,6 +7,8 @@ check_status() {
   fi
 }
 
+cd /opt/app/back/scripts
+
 echo "1. Récupération depuis GitHub..."
 bash ./pull-code.sh
 check_status

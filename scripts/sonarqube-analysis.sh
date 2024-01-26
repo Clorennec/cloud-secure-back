@@ -1,4 +1,4 @@
-#!/bin/bash
+*#!/bin/bash
 
 # Spécifiez l'emplacement du code source à analyser
 PROJET_SOURCE_DIR="/opt/app/back"
@@ -6,7 +6,7 @@ PROJET_SOURCE_DIR="/opt/app/back"
 # Spécifiez les informations du serveur SonarQube
 SONARQUBE_URL="http://localhost:9000"
 SONARQUBE_PROJECT_KEY="cloud-secure"
-SONARQUBE_TOKEN="sqp_5f2762be54a416714051a204453c37cdffe1d3d8"
+SONARQUBE_TOKEN="sqp_d5e70ea331c0124e117da2ecb6b41336ca04759a"
 
 cd /opt/app/back
 # Exécutez l'analyse SonarQube avec le scanner

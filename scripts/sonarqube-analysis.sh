@@ -1,4 +1,4 @@
-*#!/bin/bash
+#!/bin/bash
 
 # Spécifiez l'emplacement du code source à analyser
 PROJET_SOURCE_DIR="/opt/app/back"

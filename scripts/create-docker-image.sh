@@ -10,6 +10,8 @@ docker stop back-1
 
 docker rm back-1
 
+docker rmi cloud-secure-back
+
 docker build -t $DOCKER_IMAGE_NAME -f $DOCKERFILE_PATH $PROJET_MAVEN_PATH
 
 if [ $? -eq 0 ]; then

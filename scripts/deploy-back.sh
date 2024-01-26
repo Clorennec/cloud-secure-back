@@ -1,13 +1,34 @@
 #!/bin/bash
 
-LOCAL_REPO_DIR="/opt/app/back/"
+check_status() {
+  if [ $? -ne 0 ]; then
+    echo "Une erreur s'est produite. Le déploiement a échoué."
+    exit 1
+  fi
+}
 
-cd $LOCAL_REPO_DIR
+echo "1. Récupération depuis GitHub..."
+bash ./pull-code.sh
+check_status
 
-git pull
+# Exécuter le script de build
+echo "2. Construction de l'application..."
+bash ./build-maven.sh
+check_status
 
-if [ $? -eq 0 ]; then
-    echo "Le code a été récupéré avec succès depuis GitHub."
-else
-    echo "Erreur lors du clonage du dépôt GitHub."
-fi
+# Exécuter le script SonarQube
+echo "3. Analyse SonarQube..."
+bash ./sonarqube-analysis.sh
+check_status
+
+# Exécuter le script de construction Docker
+echo "4. Construction de l'image Docker..."
+bash ./create-docker-image.sh
+check_status
+
+# Exécuter le script de lancement du conteneur Docker
+echo "5. Lancement du conteneur Docker..."
+bash ./run-docker-container
+check_status
+
+echo "Le déploiement est terminé avec succès !"

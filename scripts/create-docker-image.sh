@@ -6,7 +6,6 @@ DOCKERFILE_PATH="/opt/app/back/Dockerfile"
 
 PROJET_MAVEN_PATH="/opt/app/back"
 
-# Vérifier si l'image existe avant de la supprimer
 if docker inspect "$DOCKER_IMAGE_NAME" &> /dev/null; then
     echo "L'image Docker $DOCKER_IMAGE_NAME existe. Suppression en cours..."
     docker stop back-1
@@ -17,7 +16,6 @@ else
     echo "L'image Docker $DOCKER_IMAGE_NAME n'existe pas."
 fi
 
-# Construction de la nouvelle image Docker
 docker build -t "$DOCKER_IMAGE_NAME" -f "$DOCKERFILE_PATH" "$PROJET_MAVEN_PATH"
 
 if [ $? -eq 0 ]; then
